@@ -16,6 +16,8 @@ Output:
 The script prints out the metadata of the .dmt files and provides a visual representation of the combined mosaic image.
 
 
+
+
 **Step 2: Creating Mosaic Hypercubes**
 Script: create_mosaic_hypercube
 
@@ -33,6 +35,8 @@ How to Run:
 Output:
 The script produces .h5 files for each mosaic, representing the full spectral data in a single hypercube.
 An enhanced TIFF image of the combined mosaic is saved for visual inspection.
+
+
 
 
 **Step 3: Detecting and Extracting Individual Tissue Cores**
@@ -53,6 +57,8 @@ How to Run:
 
 Output:
 The script produces individual .h5 files for each detected tissue core.
+
+
 
 
 **Step 4: Identifying and Renaming Hypercubes**
@@ -76,6 +82,8 @@ How to Run:
 Output:
 A CSV file mapping the original hypercube names to their identified reference names.
 The extracted hypercubes are renamed accordingly and saved in the specified output directory.
+
+
 
 
 **Step 5: Training the CNN-Spectral Attention Model**
