@@ -1,27 +1,25 @@
-Step 1: Reading and Inspecting Mosaic Files
+**Step 1: Reading and Inspecting Mosaic Files**
 Script: read_inspect_mosaic
 
 Purpose:
 This script reads the .dmt mosaic files, inspects the metadata, and provides an initial visualization of the hyperspectral tiles. This step is crucial for understanding the structure of the mosaic and verifying the integrity of the data.
 
 How to Run:
-Place all your .dmt files in the appropriate directory.
 Open the script read_inspect_mosaic.py.
-Set the root_directory variable to the path of your mosaic files.
+Set the root_directory variable to the path of raw folder containing folders within which .dmt files are placed.
 Run the script to read and inspect each .dmt file.
 
 Output:
 The script prints out the metadata of the .dmt files and provides a visual representation of the combined mosaic image.
 
 
-Step 2: Creating Mosaic Hypercubes
+**Step 2: Creating Mosaic Hypercubes**
 Script: create_mosaic_hypercube
 
 Purpose:
 This script stitches the individual tiles from the mosaic into a single hypercube and saves the resulting data in an HDF5 (.h5) file format. The hypercube represents the entire mosaic of spectral data.
 
 How to Run:
-Ensure that the output from the previous step (mosaic tiles) is ready.
 Open the script create_mosaic_hypercube.py.
 Set the root_directory, save_path, and save_path_image variables to the appropriate directories for input and output.
 Run the script to generate the hypercube and save it in .h5 format.
@@ -31,7 +29,7 @@ The script produces .h5 files for each mosaic, representing the full spectral da
 An enhanced TIFF image of the combined mosaic is saved for visual inspection.
 
 
-Step 3: Detecting and Extracting Individual Tissue Cores
+**Step 3: Detecting and Extracting Individual Tissue Cores**
 Script: detect_create_individual_hypercubes
 
 Purpose:
@@ -47,7 +45,7 @@ Output:
 The script produces individual .h5 files for each detected tissue core.
 
 
-Step 4: Identifying and Renaming Hypercubes
+**Step 4: Identifying and Renaming Hypercubes**
 Script: hypercube_identifier
 
 Purpose:
@@ -65,7 +63,7 @@ A CSV file mapping the original hypercube names to their identified reference na
 The extracted hypercubes are renamed accordingly and saved in the specified output directory.
 
 
-Step 5: Training the CNN-Spectral Attention Model
+**Step 5: Training the CNN-Spectral Attention Model**
 Script: cnn_spectral_attention
 
 Purpose:
@@ -82,3 +80,10 @@ Output:
 A trained model saved in .keras format.
 Plots showing the training history and attention weights.
 Evaluation metrics such as accuracy, confusion matrix, and classification report.
+
+Link to the dataset: https://zenodo.org/records/4986399
+All the .7z folders need to be downloaded individually and then extracted into a one single folder. 
+
+To make use of GPU while training the model, make sure the Tensorflow version is compatible with the cuda version.
+Eg For Tensorflow 2.17.0 you need Cuda 12.3 and cuDNN 8.9 with Python 3.9-3.12
+You can chekc the compatiblity here : https://www.tensorflow.org/install/source#gpu
